@@ -167,41 +167,27 @@ function showMap(latitude, longitude) {
   map.setView([lat, lon], 13);
 }
 
-// -------------------------------------------------handle the functions of news weather section----------------------------------------
+// -------------------------------------------------handle the functions of news section----------------------------------------
+
+// You should only use the Developer plan if your project is in development.
+
+// If your project is being used in production, please upgrade to a paid plan.
 function fetchNews() {
-  // Get the current date
-  const currentDate = new Date();
-
-  // Subtract one day to get yesterday's date
-  currentDate.setDate(currentDate.getDate() - 1);
-
-  // Extract year, month, and day from the updated date (yesterday)
-  const year = currentDate.getFullYear();
-  const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-  const day = String(currentDate.getDate()).padStart(2, '0');
-
-  // Initialize a variable with yesterday's date formatted as YYYY-MM-DD
-  const yesterdayDate = `${year}-${month}-${day}`;
-
-
-
-
-
-  const apiKey = "106ad4fd23d24006a6267873fc97dca9";
-  const apiUrl = `https://newsapi.org/v2/everything?q=weather&from=${yesterdayDate}&sortBy=publishedAt&apiKey=${apiKey}`;
+  const apiKey = "1oAwbFoA4XZcdfCnyY4RTgrwmK5kNj3aTdCRz8p0G6SmjgXG";
+  const apiUrl = `https://api.currentsapi.services/v1/search?keywords=Amazon&language=en&apiKey=${apiKey}`;
 
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
       
-      // for (let i = 1; i < 4; i++) {
-      //   document.getElementById("newsImg" + i).src = data.articles[i].urlToImage;
-      //   document.getElementById("newsTitle" + i).textContent = data.articles[i].title;
-      //   document.getElementById("newsDesc" + i).textContent = data.articles[i].description;
-      //   document.getElementById("btnNews" + i).href = data.articles[i].url;
-      //   document.getElementById("newsPub" + i).textContent = data.articles[i].publishedAt;
-      // }
+      for (let i = 1; i < 4; i++) {
+        document.getElementById("newsImg" + i).src = data.news[i].image;
+        document.getElementById("newsTitle" + i).textContent = data.news[i].title;
+        document.getElementById("newsDesc" + i).textContent = data.news[i].description;
+        document.getElementById("btnNews" + i).href = data.news[i].url;
+        document.getElementById("newsPub" + i).textContent = data.news[i].published;
+      }
     });
 }
 
