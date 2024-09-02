@@ -186,7 +186,12 @@ function fetchNews() {
   const apiKey = "106ad4fd23d24006a6267873fc97dca9";
   const apiUrl = `https://newsapi.org/v2/everything?q=weather&from=${yesterdayDate}&sortBy=publishedAt&apiKey=${apiKey}`;
 
-  fetch(apiUrl)
+  fetch(apiUrl,{
+    method: 'GET',
+    headers: {
+      'Upgrade': 'h2c', // Example header if required
+    },
+  })
     .then((response) => response.json())
     .then((data) => {
       // Check if data.articles exists and contains at least 3 articles
