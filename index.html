@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEATHERWISE-Home</title>
+  <link rel="icon" href="./img/Light-logo.png" type="image/png">
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body style="background-color: #B7D3F3;">
+  <!-- -------------------------------------------------header------------------------------------------------- -->
+  <header>
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <img src="./img/Light-logo.png" alt="" height="60px">
+        </a>
+
+        <ul class="nav nav-pills">
+          <li><a href="#">Home</a></li>
+          <li><a href="#currentWeather">Current</a></li>
+          <li><a href="#weatherForecast">Forecast</a></li>
+          <li><a href="#historyWeather">History</a></li>
+          <li><a href="#newsSection">News</a></li>
+          <li><a href="#mapSection">Map</a></li>
+        </ul>
+
+      </div>
+      <img src="./img/Ratate Earth.gif" alt="" srcset="" style="opacity: 25%;">
+      <div class="timeLbl" id="local-time"></div>
+      <input type="text" class="searchTxt" id="txtSearch" placeholder=" Enter location">
+      <button class="normalBtn" id="btnSearch"><i class="bi bi-search"></i> Search</button>
+      <button class="normalBtn" id="btnReset"><i class="bi bi-crosshair2"></i> Current</button>
+    </div>
+  </header>
+
+  <!-- -------------------------------------------current weather section------------------------------------- -->
+  <section class="current-weather" id="currentWeather" data-aos="zoom-in">
+    <div class="weather-card">
+      <div class="headers">
+        <p><i class="bi bi-cloud-fill"></i> Current Weather</p>
+      </div>
+      <div class="weather-content">
+        <div class="weather-icon">
+          <img id="weatherIcon" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+        </div>
+        <div class="weather-details">
+          <p class="location-name" id="location" style="margin-bottom: -1rem;"><i class="bi bi-geo-alt-fill"></i>
+            -</p>
+          <p class="temperature" id="temperature-c" style="margin-bottom: -1rem;">-°C</p>
+          <p class="location-name" id="temperature-feels">Feels like -°C/-°F</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table class="tblWeather mx-auto mt-5 w-100">
+        <tr class="tblHead">
+          <th><i class="bi bi-geo-fill"></i> Timezone</th>
+
+          <th><i class="bi bi-thermometer-half"></i> Temperature</th>
+
+          <th><i class="bi bi-moisture"></i> Humidity</th>
+
+          <th><i class="bi bi-wind"></i> Wind speed</th>
+
+          <th><i class="bi bi-umbrella"></i> Condition</th>
+
+          <th><i class="bi bi-geo-alt"></i> Region</th>
+
+          <th><i class="bi bi-globe-americas"></i> Country</th>
+
+        </tr>
+        <tr class="tblBody">
+          <td><span id="tz_id">-</span></td>
+          <td><span id="temp_c">-</span></td>
+          <td><span id="humidity">-</span></td>
+          <td><span id="wind_kph">-</span></td>
+          <td><span id="condition">-</span></td>
+          <td><span id="region">-</span></td>
+          <td><span id="country">-</span></td>
+        </tr>
+      </table>
+      <button class="normalBtn m-4" id="btnCurrentWeather"><a href="./current-weather.html">see details <i
+            class="bi bi-three-dots-vertical"></i></a></button>
+    </div>
+
+    <div class="last-updated">
+      <p>last updated: <span id="lastUpdated"></span></p>
+    </div>
+
+  </section>
+
+  <!-- -------------------------------------------weather forecast section------------------------------------- -->
+  <section class="weather-forecast" id="weatherForecast" data-aos="zoom-in">
+    <div class="weather-card">
+      <div class="headers">
+        <p><i class="bi bi-cloud-sun-fill"></i> Weather Forecast</p>
+      </div>
+      <div class="forecast-content">
+        <div class="card-weather">
+          <img src="./img/icons8-partly-cloudy-day-96.png" class="card-img-top w-50 mx-auto" id="weatherIcon1"
+            alt="...">
+          <div class="card-body">
+            <p class="card-date" id="date1">-</p>
+            <p class="card-temp" id="temp1">-</p>
+            <p class="card-condition" id="condition1">-</p>
+            <button class="normalBtn" id="btnForecast1"><a href="./forecast-day-01.html">see details <i
+                  class="bi bi-three-dots-vertical"></i></a></button>
+          </div>
+        </div>
+        <div class="card-weather">
+          <img src="./img/icons8-partly-cloudy-day-96.png" class="card-img-top w-50 mx-auto" id="weatherIcon2"
+            alt="...">
+          <div class="card-body">
+            <p class="card-date" id="date2">-</p>
+            <p class="card-temp" id="temp2">-</p>
+            <p class="card-condition" id="condition2">-</p>
+            <button class="normalBtn" id="btnForecast2"><a href="./forecast-day-02.html">see details <i
+                  class="bi bi-three-dots-vertical"></i></a></button>
+          </div>
+        </div>
+        <div class="card-weather">
+          <img src="./img/icons8-partly-cloudy-day-96.png" class="card-img-top w-50 mx-auto" id="weatherIcon3"
+            alt="...">
+          <div class="card-body">
+            <p class="card-date" id="date3">-</p>
+            <p class="card-temp" id="temp3">-</p>
+            <p class="card-condition" id="condition3">-</p>
+            <button class="normalBtn" id="btnForecast3"><a href="./forecast-day-03.html">see details <i
+                  class="bi bi-three-dots-vertical"></i></a></button>
+          </div>
+        </div>
+        <div class="card-weather">
+          <img src="./img/icons8-partly-cloudy-day-96.png" class="card-img-top w-50 mx-auto" id="weatherIcon4"
+            alt="...">
+          <div class="card-body">
+            <p class="card-date" id="date4">-</p>
+            <p class="card-temp" id="temp4">-</p>
+            <p class="card-condition" id="condition4">-</p>
+            <button class="normalBtn" id="btnForecast4"><a href="./forecast-day-04.html">see details <i
+                  class="bi bi-three-dots-vertical"></i></a></button>
+          </div>
+        </div>
+        <div class="card-weather">
+          <img src="./img/icons8-partly-cloudy-day-96.png" class="card-img-top w-50 mx-auto" id="weatherIcon5"
+            alt="...">
+          <div class="card-body">
+            <p class="card-date" id="date5">-</p>
+            <p class="card-temp" id="temp5">-</p>
+            <p class="card-condition" id="condition5">-</p>
+            <button class="normalBtn" id="btnForecast5"><a href="./forecast-day-05.html">see details <i
+                  class="bi bi-three-dots-vertical"></i></a></button>
+          </div>
+        </div>
+        <div class="card-weather">
+          <img src="./img/icons8-partly-cloudy-day-96.png" class="card-img-top w-50 mx-auto" id="weatherIcon6"
+            alt="...">
+          <div class="card-body">
+            <p class="card-date" id="date6">-</p>
+            <p class="card-temp" id="temp6">-</p>
+            <p class="card-condition" id="condition6">-</p>
+            <button class="normalBtn" id="btnForecast6"><a href="./forecast-day-06.html">see details <i
+                  class="bi bi-three-dots-vertical"></i></a></button>
+          </div>
+        </div>
+        <div class="card-weather">
+          <img src="./img/icons8-partly-cloudy-day-96.png" class="card-img-top w-50 mx-auto" id="weatherIcon7"
+            alt="...">
+          <div class="card-body">
+            <p class="card-date" id="date7">-</p>
+            <p class="card-temp" id="temp7">-</p>
+            <p class="card-condition" id="condition7">-</p>
+            <button class="normalBtn" id="btnForecast7"><a href="./forecast-day-07.html">see details <i
+                  class="bi bi-three-dots-vertical"></i></a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------history weather section------------------------------------- -->
+  <section class="current-weather" id="historyWeather" data-aos="zoom-in">
+    <div class="weather-card">
+      <div class="headers">
+        <p><i class="bi bi-clock-history"></i> Historical weather data</p>
+      </div>
+      <input type="date" class="searchTxt w-50 mt-1 mb-1" id="txtHistorySearch">
+      <div>
+        <p>(Please enter a date within the past 365 days.)</p>
+        <button class="normalBtn mt-1 mb-3" id="btnHistorySearch"><i class="bi bi-search"></i> Search</button>
+      </div>
+      <div class="weather-content">
+        <div class="weather-icon">
+          <img id="weatherIcon_history" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+        </div>
+        <div class="weather-details">
+          <p class="location-name" id="location_history" style="margin-bottom: -1rem;"><i
+              class="bi bi-geo-alt-fill"></i> -</p>
+          <p class="temperature" id="temperature-c_history" style="margin-bottom: -1rem;">-</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table class="tblWeather mx-auto mt-5 w-100">
+        <tr class="tblHead">
+          <th><i class="bi bi-umbrella"></i> Condition</th>
+          <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+          <th><i class="bi bi-cloud-haze2"></i> Max Wind</th>
+          <th><i class="bi bi-eye"></i> Avg visibility</th>
+          <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+          <th><i class="bi bi-snow"></i> Total snow</th>
+          <th><i class="bi bi-moisture"></i> Avg humidity</th>
+        </tr>
+        <tr class="tblBody">
+          <td><span id="condition_history">-</span></td>
+          <td><span id="uv_history">-</span></td>
+          <td><span id="wind_max_history">-</span></td>
+          <td><span id="visibility_history">-</span></td>
+          <td><span id="precip_history">-</span></td>
+          <td><span id="snow_history">-</span></td>
+          <td><span id="humidity_history">-</span></td>
+        </tr>
+      </table>
+      <button class="normalBtn m-4" id="btnCurrentWeather"><a href="./history-weather.html">see details <i
+            class="bi bi-three-dots-vertical"></i></a></button>
+    </div>
+
+  </section>
+
+  <!-- --------------------------------------------map section----------------------------------- -->
+  <section class="current-weather" id="mapSection" data-aos="zoom-in">
+    <div class="weather-card">
+      <div class="headers">
+        <p><i class="bi bi-map"></i> Map</p>
+      </div>
+      <div id="map"></div>
+    </div>
+  </section>
+
+  <!-- --------------------------------------------news section----------------------------------- -->
+  <section class="current-weather" id="newsSection" data-aos="zoom-in">
+    <div class="weather-card">
+      <div class="headers">
+        <p><i class="bi bi-map"></i> News</p>
+      </div>
+      <div class="card-group">
+        <div class="card bg-secondary-subtle">
+          <img src="..." class="card-img-top" style="height: 350px;" id="newsImg1" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" id="newsTitle1">Card title</h5>
+            <p class="card-text" id="newsDesc1">This is a wider card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.</p>
+            <button class="normalBtn m-4"><a href="#" id="btnNews1">see details <i
+                  class="bi bi-three-dots-vertical"></i></a></button>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary" id="newsPub1">Last updated 3 mins ago</small>
+          </div>
+        </div>
+        <div class="card bg-secondary-subtle">
+          <img src="..." class="card-img-top h-50" style="height: 350px;" id="newsImg2" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" id="newsTitle2">Card title</h5>
+            <p class="card-text" id="newsDesc2">This card has supporting text below as a natural lead-in to additional
+              content.</p>
+            <button class="normalBtn m-4"><a href="#" id="btnNews2">see details <i
+                  class="bi bi-three-dots-vertical"></i></a></button>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary" id="newsPub2">Last updated 3 mins ago</small>
+          </div>
+        </div>
+        <div class="card bg-secondary-subtle">
+          <img src="..." class="card-img-top" style="height: 350px;" id="newsImg3" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" id="newsTitle3">Card title</h5>
+            <p class="card-text" id="newsDesc3">This is a wider card with supporting text below as a natural lead-in to
+              additional content. This card has even longer content than the first to show that equal height action.</p>
+            <button class="normalBtn m-4"><a href="#" id="btnNews3">see details <i
+                  class="bi bi-three-dots-vertical"></i></a></button>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary" id="newsPub3">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --------------------------------------------footer section----------------------------------- -->
+  <section class="footer">
+    <div class="p-4">
+      <footer class="py-5">
+        <div class="row">
+          <div class="w-50">
+            <img src="./img/Light-logo.png" style="width: 100px;" alt="">
+            <h5>About us</h5>
+            <p class="aboutText">
+              Welcome to WeatherWise! Your go-to source for accurate, real-time weather updates. Whether you're planning
+              your day or preparing for extreme conditions, we've got you covered. Get daily forecasts, severe weather
+              alerts, and more to stay informed and ready for any weather situation.
+            </p>
+          </div>
+
+          <div class="col-md-5 offset-md-1 mb-3">
+            <form>
+              <h5>Subscribe to our newsletter</h5>
+              <p>Monthly digest of what's new and exciting from us.</p>
+              <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden">Email address</label>
+                <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                <button class="btn btn-primary" type="button">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+          <p>&copy; 2024 WeatherWise, Inc. All rights reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3"><a href="https://x.com/i/flow/login"><i class="bi bi-twitter"></i></a></li>
+            <li class="ms-3"><a href="https://www.instagram.com/accounts/login/?hl=en"><i
+                  class="bi bi-instagram"></i></a></li>
+            <li class="ms-3"><a href="https://www.facebook.com/login/"><i class="bi bi-facebook"></i></a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="./js/index.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init(3000);
+  </script>
+</body>
+
+</html>

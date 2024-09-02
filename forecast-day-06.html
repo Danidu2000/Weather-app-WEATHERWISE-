@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forcast Day 06</title>
+    <link rel="icon" href="./img/Light-logo.png" type="image/png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body style="background-color: #B7D3F3;">
+    <!-- ------------------------------------------------Weather forecast section------------------------------------------------------- -->
+    <section class="current-weather" id="Weatherforecast">
+        <div class="weather-card">
+            <div class="headers">
+                <p id="date">-</p>
+            </div>
+            <div class="weather-content">
+                <div class="weather-icon">
+                    <img id="weatherIcon" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+                </div>
+                <div class="weather-details">
+                    <p class="location-name" id="location" style="margin-bottom: -1rem;"><i
+                            class="bi bi-geo-alt-fill"></i> -</p>
+                    <p class="temperature" id="temperature-c" style="margin-bottom: -1rem;">-°C</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="overflow-x:auto;">
+            <table class="tblWeather mx-auto mt-5 w-100">
+                <tr class="tblHead">
+                    <th><i class="bi bi-thermometer-high"></i> Max temperature</th>
+
+                    <th><i class="bi bi-thermometer-low"></i> Min temperature</th>
+
+                    <th><i class="bi bi-cloud-haze2"></i> Max Wind</th>
+
+                    <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+
+                    <th><i class="bi bi-snow"></i> Total snow</th>
+
+                    <th><i class="bi bi-moisture"></i> Avg humidity</th>
+                </tr>
+                <tr class="tblBody">
+                    <td><span id="temp_max">-</span></td>
+                    <td><span id="temp_min">-</span></td>
+                    <td><span id="wind_max">-</span></td>
+                    <td><span id="precip">-</span></td>
+                    <td><span id="snow">-</span></td>
+                    <td><span id="humidity">-</span></td>
+                </tr>
+                <tr class="tblHead">
+                    <th><i class="bi bi-eye"></i> Avg visibility</th>
+
+                    <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+
+                    <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+
+                    <th><i class="bi bi-umbrella"></i> Condition</th>
+
+                    <th><i class="bi bi-brightness-low-fill"></i> UV Index</th>
+
+                </tr>
+                <tr class="tblBody">
+                    <td><span id="visibility">-</span></td>
+                    <td><span id="chance_of_rain">-</span></td>
+                    <td><span id="chance_of_snow">-</span></td>
+                    <td><span id="condition">-</span></td>
+                    <td><span id="uv">-</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="last-updated">
+            <p>last updated: <span id="lastUpdated"></span></p>
+        </div>
+    </section>
+    <!-- ------------------------------------------------Astro section-------------------------------------------------------- -->
+    <section class="current-weather" id="astro">
+            <div class="headers">
+                <p id="date"><i class="bi bi-graph-up"></i> Astro</p>
+            </div>
+
+        <div style="overflow-x:auto;">
+            <table class="tblWeather mx-auto mt-2 w-100">
+                <tr class="tblHead">
+                    <th><i class="bi bi-sunrise-fill"></i> Sunrise</th>
+
+                    <th><i class="bi bi-sunset-fill"></i> Sunset</th>
+
+                    <th><i class="bi bi-moon-fill"></i> Moonrise</th>
+
+                    <th><i class="bi bi-cloud-moon-fill"></i> Moonset</th>
+
+                    <th><i class="bi bi-moon"></i> Moon phase</th>
+
+                    <th><i class="bi bi-moon-stars"></i> Moon illumination</th>
+                </tr>
+                <tr class="tblBody">
+                    <td><span id="sunrise">-</span></td>
+                    <td><span id="sunset">-</span></td>
+                    <td><span id="moonrise">-</span></td>
+                    <td><span id="moonset">-</span></td>
+                    <td><span id="moonphase">-</span></td>
+                    <td><span id="moonillumination">-</span></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <!-- ------------------------------------------------hour 0 section-------------------------------------------------------- -->
+    <section class="hourly-weather" id="hourlyWeather0">
+        <div class="weather-card">
+            <div class="hourly-headers">
+                <p id="time0">-</p>
+            </div>
+            <div class="weather-content">
+                <div class="weather-icon">
+                    <img id="weatherIcon0" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+                </div>
+                <div class="weather-details">
+                    <p class="location-name" id="location0" style="margin-bottom: -1rem;"><i
+                            class="bi bi-geo-alt-fill"></i> -</p>
+                    <p class="temperature" id="temperature-c0" style="margin-bottom: -1rem;">-°C</p>
+                    <p class="location-name" id="temperature-feels0">Feels like -°C/-°F</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="overflow-x:auto;">
+            <table class="tblWeather mx-auto mt-5 w-100">
+                <tr class="hourly-tblHead">
+                    <th><i class="bi bi-umbrella"></i> Condition</th>
+
+                    <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+
+                    <th><i class="bi bi-cloud"></i> Cloud</th>
+
+                    <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+
+                    <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+
+                    <th><i class="bi bi-snow"></i> Total snow</th>
+
+                    <th><i class="bi bi-moisture"></i> Avg humidity</th>
+                </tr>
+                <tr class="hourly-tblBody">
+                    <td><span id="condition0">-</span></td>
+                    <td><span id="uv0">-</span></td>
+                    <td><span id="cloud0">-</span></td>
+                    <td><span id="heatindex0">-</span></td>
+                    <td><span id="precip0">-</span></td>
+                    <td><span id="snow0">-</span></td>
+                    <td><span id="humidity0">-</span></td>
+                </tr>
+                <tr class="hourly-tblHead">
+                    <th><i class="bi bi-eye"></i> Avg visibility</th>
+
+                    <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+
+                    <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+
+                    <th><i class="bi bi-wind"></i> Wind Speed</th>
+
+                    <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+
+                    <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+
+                    <th><i class="bi bi-speedometer"></i> Pressure</th>
+
+                </tr>
+                <tr class="hourly-tblBody">
+                    <td><span id="visibility0">-</span></td>
+                    <td><span id="chance_of_rain0">-</span></td>
+                    <td><span id="chance_of_snow0">-</span></td>
+                    <td><span id="wind_speed0">-</span></td>
+                    <td><span id="wind_degree0">-</span></td>
+                    <td><span id="wind_direction0">-</span></td>
+                    <td><span id="pressure0">-</span></td>
+                </tr>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- ------------------------------------------------hour 1 section-------------------------------------------------------- -->
+    <section class="hourly-weather" id="hourlyWeather1">
+        <div class="weather-card">
+            <div class="hourly-headers">
+                <p id="time1">-</p>
+            </div>
+            <div class="weather-content">
+                <div class="weather-icon">
+                    <img id="weatherIcon1" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+                </div>
+                <div class="weather-details">
+                    <p class="location-name" id="location1" style="margin-bottom: -1rem;"><i
+                            class="bi bi-geo-alt-fill"></i> -</p>
+                    <p class="temperature" id="temperature-c1" style="margin-bottom: -1rem;">-°C</p>
+                    <p class="location-name" id="temperature-feels1">Feels like -°C/-°F</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="overflow-x:auto;">
+            <table class="tblWeather mx-auto mt-5 w-100">
+                <tr class="hourly-tblHead">
+                    <th><i class="bi bi-umbrella"></i> Condition</th>
+
+                    <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+
+                    <th><i class="bi bi-cloud"></i> Cloud</th>
+
+                    <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+
+                    <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+
+                    <th><i class="bi bi-snow"></i> Total snow</th>
+
+                    <th><i class="bi bi-moisture"></i> Avg humidity</th>
+                </tr>
+                <tr class="hourly-tblBody">
+                    <td><span id="condition1">-</span></td>
+                    <td><span id="uv1">-</span></td>
+                    <td><span id="cloud1">-</span></td>
+                    <td><span id="heatindex1">-</span></td>
+                    <td><span id="precip1">-</span></td>
+                    <td><span id="snow1">-</span></td>
+                    <td><span id="humidity1">-</span></td>
+                </tr>
+                <tr class="hourly-tblHead">
+                    <th><i class="bi bi-eye"></i> Avg visibility</th>
+
+                    <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+
+                    <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+
+                    <th><i class="bi bi-wind"></i> Wind Speed</th>
+
+                    <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+
+                    <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+
+                    <th><i class="bi bi-speedometer"></i> Pressure</th>
+
+                </tr>
+                <tr class="hourly-tblBody">
+                    <td><span id="visibility1">-</span></td>
+                    <td><span id="chance_of_rain1">-</span></td>
+                    <td><span id="chance_of_snow1">-</span></td>
+                    <td><span id="wind_speed1">-</span></td>
+                    <td><span id="wind_degree1">-</span></td>
+                    <td><span id="wind_direction1">-</span></td>
+                    <td><span id="pressure1">-</span></td>
+                </tr>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- ------------------------------------------------hour 2 section-------------------------------------------------------- -->
+    <section class="hourly-weather" id="hourlyWeather1">
+        <div class="weather-card">
+            <div class="hourly-headers">
+                <p id="time2">-</p>
+            </div>
+            <div class="weather-content">
+                <div class="weather-icon">
+                    <img id="weatherIcon2" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+                </div>
+                <div class="weather-details">
+                    <p class="location-name" id="location2" style="margin-bottom: -1rem;"><i
+                            class="bi bi-geo-alt-fill"></i> -</p>
+                    <p class="temperature" id="temperature-c2" style="margin-bottom: -1rem;">-°C</p>
+                    <p class="location-name" id="temperature-feels2">Feels like -°C/-°F</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="overflow-x:auto;">
+            <table class="tblWeather mx-auto mt-5 w-100">
+                <tr class="hourly-tblHead">
+                    <th><i class="bi bi-umbrella"></i> Condition</th>
+
+                    <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+
+                    <th><i class="bi bi-cloud"></i> Cloud</th>
+
+                    <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+
+                    <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+
+                    <th><i class="bi bi-snow"></i> Total snow</th>
+
+                    <th><i class="bi bi-moisture"></i> Avg humidity</th>
+                </tr>
+                <tr class="hourly-tblBody">
+                    <td><span id="condition2">-</span></td>
+                    <td><span id="uv2">-</span></td>
+                    <td><span id="cloud2">-</span></td>
+                    <td><span id="heatindex2">-</span></td>
+                    <td><span id="precip2">-</span></td>
+                    <td><span id="snow2">-</span></td>
+                    <td><span id="humidity2">-</span></td>
+                </tr>
+                <tr class="hourly-tblHead">
+                    <th><i class="bi bi-eye"></i> Avg visibility</th>
+
+                    <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+
+                    <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+
+                    <th><i class="bi bi-wind"></i> Wind Speed</th>
+
+                    <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+
+                    <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+
+                    <th><i class="bi bi-speedometer"></i> Pressure</th>
+
+                </tr>
+                <tr class="hourly-tblBody">
+                    <td><span id="visibility2">-</span></td>
+                    <td><span id="chance_of_rain2">-</span></td>
+                    <td><span id="chance_of_snow2">-</span></td>
+                    <td><span id="wind_speed2">-</span></td>
+                    <td><span id="wind_degree2">-</span></td>
+                    <td><span id="wind_direction2">-</span></td>
+                    <td><span id="pressure2">-</span></td>
+                </tr>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- ------------------------------------------------hour 3 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather3">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time3">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon3" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location3" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c3" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels3">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition3">-</span></td>
+                <td><span id="uv3">-</span></td>
+                <td><span id="cloud3">-</span></td>
+                <td><span id="heatindex3">-</span></td>
+                <td><span id="precip3">-</span></td>
+                <td><span id="snow3">-</span></td>
+                <td><span id="humidity3">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility3">-</span></td>
+                <td><span id="chance_of_rain3">-</span></td>
+                <td><span id="chance_of_snow3">-</span></td>
+                <td><span id="wind_speed3">-</span></td>
+                <td><span id="wind_degree3">-</span></td>
+                <td><span id="wind_direction3">-</span></td>
+                <td><span id="pressure3">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 4 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather4">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time4">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon4" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location4" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c4" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels4">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition4">-</span></td>
+                <td><span id="uv4">-</span></td>
+                <td><span id="cloud4">-</span></td>
+                <td><span id="heatindex4">-</span></td>
+                <td><span id="precip4">-</span></td>
+                <td><span id="snow4">-</span></td>
+                <td><span id="humidity4">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility4">-</span></td>
+                <td><span id="chance_of_rain4">-</span></td>
+                <td><span id="chance_of_snow4">-</span></td>
+                <td><span id="wind_speed4">-</span></td>
+                <td><span id="wind_degree4">-</span></td>
+                <td><span id="wind_direction4">-</span></td>
+                <td><span id="pressure4">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 5 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather5">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time5">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon5" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location5" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c5" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels5">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition5">-</span></td>
+                <td><span id="uv5">-</span></td>
+                <td><span id="cloud5">-</span></td>
+                <td><span id="heatindex5">-</span></td>
+                <td><span id="precip5">-</span></td>
+                <td><span id="snow5">-</span></td>
+                <td><span id="humidity5">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility5">-</span></td>
+                <td><span id="chance_of_rain5">-</span></td>
+                <td><span id="chance_of_snow5">-</span></td>
+                <td><span id="wind_speed5">-</span></td>
+                <td><span id="wind_degree5">-</span></td>
+                <td><span id="wind_direction5">-</span></td>
+                <td><span id="pressure5">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 6 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather6">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time6">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon6" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location6" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c6" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels6">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition6">-</span></td>
+                <td><span id="uv6">-</span></td>
+                <td><span id="cloud6">-</span></td>
+                <td><span id="heatindex6">-</span></td>
+                <td><span id="precip6">-</span></td>
+                <td><span id="snow6">-</span></td>
+                <td><span id="humidity6">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility6">-</span></td>
+                <td><span id="chance_of_rain6">-</span></td>
+                <td><span id="chance_of_snow6">-</span></td>
+                <td><span id="wind_speed6">-</span></td>
+                <td><span id="wind_degree6">-</span></td>
+                <td><span id="wind_direction6">-</span></td>
+                <td><span id="pressure6">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 7 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather7">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time7">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon7" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location7" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c7" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels7">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition7">-</span></td>
+                <td><span id="uv7">-</span></td>
+                <td><span id="cloud7">-</span></td>
+                <td><span id="heatindex7">-</span></td>
+                <td><span id="precip7">-</span></td>
+                <td><span id="snow7">-</span></td>
+                <td><span id="humidity7">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility7">-</span></td>
+                <td><span id="chance_of_rain7">-</span></td>
+                <td><span id="chance_of_snow7">-</span></td>
+                <td><span id="wind_speed7">-</span></td>
+                <td><span id="wind_degree7">-</span></td>
+                <td><span id="wind_direction7">-</span></td>
+                <td><span id="pressure7">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 8 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather8">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time8">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon8" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location8" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c8" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels8">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition8">-</span></td>
+                <td><span id="uv8">-</span></td>
+                <td><span id="cloud8">-</span></td>
+                <td><span id="heatindex8">-</span></td>
+                <td><span id="precip8">-</span></td>
+                <td><span id="snow8">-</span></td>
+                <td><span id="humidity8">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility8">-</span></td>
+                <td><span id="chance_of_rain8">-</span></td>
+                <td><span id="chance_of_snow8">-</span></td>
+                <td><span id="wind_speed8">-</span></td>
+                <td><span id="wind_degree8">-</span></td>
+                <td><span id="wind_direction8">-</span></td>
+                <td><span id="pressure8">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 9 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather9">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time9">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon9" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location9" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c9" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels9">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition9">-</span></td>
+                <td><span id="uv9">-</span></td>
+                <td><span id="cloud9">-</span></td>
+                <td><span id="heatindex9">-</span></td>
+                <td><span id="precip9">-</span></td>
+                <td><span id="snow9">-</span></td>
+                <td><span id="humidity9">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility9">-</span></td>
+                <td><span id="chance_of_rain9">-</span></td>
+                <td><span id="chance_of_snow9">-</span></td>
+                <td><span id="wind_speed9">-</span></td>
+                <td><span id="wind_degree9">-</span></td>
+                <td><span id="wind_direction9">-</span></td>
+                <td><span id="pressure9">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 10 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather10">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time10">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon10" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location10" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c10" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels10">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition10">-</span></td>
+                <td><span id="uv10">-</span></td>
+                <td><span id="cloud10">-</span></td>
+                <td><span id="heatindex10">-</span></td>
+                <td><span id="precip10">-</span></td>
+                <td><span id="snow10">-</span></td>
+                <td><span id="humidity10">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility10">-</span></td>
+                <td><span id="chance_of_rain10">-</span></td>
+                <td><span id="chance_of_snow10">-</span></td>
+                <td><span id="wind_speed10">-</span></td>
+                <td><span id="wind_degree10">-</span></td>
+                <td><span id="wind_direction10">-</span></td>
+                <td><span id="pressure10">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 11 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather11">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time11">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon11" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location11" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c11" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels11">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition11">-</span></td>
+                <td><span id="uv11">-</span></td>
+                <td><span id="cloud11">-</span></td>
+                <td><span id="heatindex11">-</span></td>
+                <td><span id="precip11">-</span></td>
+                <td><span id="snow11">-</span></td>
+                <td><span id="humidity11">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility11">-</span></td>
+                <td><span id="chance_of_rain11">-</span></td>
+                <td><span id="chance_of_snow11">-</span></td>
+                <td><span id="wind_speed11">-</span></td>
+                <td><span id="wind_degree11">-</span></td>
+                <td><span id="wind_direction11">-</span></td>
+                <td><span id="pressure11">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 12 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather12">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time12">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon12" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location12" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c12" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels12">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition12">-</span></td>
+                <td><span id="uv12">-</span></td>
+                <td><span id="cloud12">-</span></td>
+                <td><span id="heatindex12">-</span></td>
+                <td><span id="precip12">-</span></td>
+                <td><span id="snow12">-</span></td>
+                <td><span id="humidity12">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility12">-</span></td>
+                <td><span id="chance_of_rain12">-</span></td>
+                <td><span id="chance_of_snow12">-</span></td>
+                <td><span id="wind_speed12">-</span></td>
+                <td><span id="wind_degree12">-</span></td>
+                <td><span id="wind_direction12">-</span></td>
+                <td><span id="pressure12">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 13 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather13">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time13">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon13" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location13" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c13" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels13">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition13">-</span></td>
+                <td><span id="uv13">-</span></td>
+                <td><span id="cloud13">-</span></td>
+                <td><span id="heatindex13">-</span></td>
+                <td><span id="precip13">-</span></td>
+                <td><span id="snow13">-</span></td>
+                <td><span id="humidity13">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility13">-</span></td>
+                <td><span id="chance_of_rain13">-</span></td>
+                <td><span id="chance_of_snow13">-</span></td>
+                <td><span id="wind_speed13">-</span></td>
+                <td><span id="wind_degree13">-</span></td>
+                <td><span id="wind_direction13">-</span></td>
+                <td><span id="pressure13">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 14 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather14">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time14">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon14" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location14" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c14" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels14">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition14">-</span></td>
+                <td><span id="uv14">-</span></td>
+                <td><span id="cloud14">-</span></td>
+                <td><span id="heatindex14">-</span></td>
+                <td><span id="precip14">-</span></td>
+                <td><span id="snow14">-</span></td>
+                <td><span id="humidity14">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility14">-</span></td>
+                <td><span id="chance_of_rain14">-</span></td>
+                <td><span id="chance_of_snow14">-</span></td>
+                <td><span id="wind_speed14">-</span></td>
+                <td><span id="wind_degree14">-</span></td>
+                <td><span id="wind_direction14">-</span></td>
+                <td><span id="pressure14">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 15 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather15">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time15">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon15" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location15" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c15" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels15">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition15">-</span></td>
+                <td><span id="uv15">-</span></td>
+                <td><span id="cloud15">-</span></td>
+                <td><span id="heatindex15">-</span></td>
+                <td><span id="precip15">-</span></td>
+                <td><span id="snow15">-</span></td>
+                <td><span id="humidity15">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility15">-</span></td>
+                <td><span id="chance_of_rain15">-</span></td>
+                <td><span id="chance_of_snow15">-</span></td>
+                <td><span id="wind_speed15">-</span></td>
+                <td><span id="wind_degree15">-</span></td>
+                <td><span id="wind_direction15">-</span></td>
+                <td><span id="pressure15">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 16 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather16">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time16">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon16" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location16" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c16" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels16">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition16">-</span></td>
+                <td><span id="uv16">-</span></td>
+                <td><span id="cloud16">-</span></td>
+                <td><span id="heatindex16">-</span></td>
+                <td><span id="precip16">-</span></td>
+                <td><span id="snow16">-</span></td>
+                <td><span id="humidity16">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility16">-</span></td>
+                <td><span id="chance_of_rain16">-</span></td>
+                <td><span id="chance_of_snow16">-</span></td>
+                <td><span id="wind_speed16">-</span></td>
+                <td><span id="wind_degree16">-</span></td>
+                <td><span id="wind_direction16">-</span></td>
+                <td><span id="pressure16">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 17 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather17">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time17">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon17" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location17" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c17" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels17">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition17">-</span></td>
+                <td><span id="uv17">-</span></td>
+                <td><span id="cloud17">-</span></td>
+                <td><span id="heatindex17">-</span></td>
+                <td><span id="precip17">-</span></td>
+                <td><span id="snow17">-</span></td>
+                <td><span id="humidity17">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility17">-</span></td>
+                <td><span id="chance_of_rain17">-</span></td>
+                <td><span id="chance_of_snow17">-</span></td>
+                <td><span id="wind_speed17">-</span></td>
+                <td><span id="wind_degree17">-</span></td>
+                <td><span id="wind_direction17">-</span></td>
+                <td><span id="pressure17">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 18 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather18">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time18">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon18" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location18" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c18" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels18">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition18">-</span></td>
+                <td><span id="uv18">-</span></td>
+                <td><span id="cloud18">-</span></td>
+                <td><span id="heatindex18">-</span></td>
+                <td><span id="precip18">-</span></td>
+                <td><span id="snow18">-</span></td>
+                <td><span id="humidity18">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility18">-</span></td>
+                <td><span id="chance_of_rain18">-</span></td>
+                <td><span id="chance_of_snow18">-</span></td>
+                <td><span id="wind_speed18">-</span></td>
+                <td><span id="wind_degree18">-</span></td>
+                <td><span id="wind_direction18">-</span></td>
+                <td><span id="pressure18">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 19 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather19">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time19">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon19" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location19" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c19" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels19">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition19">-</span></td>
+                <td><span id="uv19">-</span></td>
+                <td><span id="cloud19">-</span></td>
+                <td><span id="heatindex19">-</span></td>
+                <td><span id="precip19">-</span></td>
+                <td><span id="snow19">-</span></td>
+                <td><span id="humidity19">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility19">-</span></td>
+                <td><span id="chance_of_rain19">-</span></td>
+                <td><span id="chance_of_snow19">-</span></td>
+                <td><span id="wind_speed19">-</span></td>
+                <td><span id="wind_degree19">-</span></td>
+                <td><span id="wind_direction19">-</span></td>
+                <td><span id="pressure19">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 20 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather20">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time20">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon20" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location20" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c20" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels20">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition20">-</span></td>
+                <td><span id="uv20">-</span></td>
+                <td><span id="cloud20">-</span></td>
+                <td><span id="heatindex20">-</span></td>
+                <td><span id="precip20">-</span></td>
+                <td><span id="snow20">-</span></td>
+                <td><span id="humidity20">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility20">-</span></td>
+                <td><span id="chance_of_rain20">-</span></td>
+                <td><span id="chance_of_snow20">-</span></td>
+                <td><span id="wind_speed20">-</span></td>
+                <td><span id="wind_degree20">-</span></td>
+                <td><span id="wind_direction20">-</span></td>
+                <td><span id="pressure20">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 21 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather21">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time21">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon21" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location21" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c21" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels21">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition21">-</span></td>
+                <td><span id="uv21">-</span></td>
+                <td><span id="cloud21">-</span></td>
+                <td><span id="heatindex21">-</span></td>
+                <td><span id="precip21">-</span></td>
+                <td><span id="snow21">-</span></td>
+                <td><span id="humidity21">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility21">-</span></td>
+                <td><span id="chance_of_rain21">-</span></td>
+                <td><span id="chance_of_snow21">-</span></td>
+                <td><span id="wind_speed21">-</span></td>
+                <td><span id="wind_degree21">-</span></td>
+                <td><span id="wind_direction21">-</span></td>
+                <td><span id="pressure21">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 22 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather22">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time22">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon22" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location22" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c22" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels22">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition22">-</span></td>
+                <td><span id="uv22">-</span></td>
+                <td><span id="cloud22">-</span></td>
+                <td><span id="heatindex22">-</span></td>
+                <td><span id="precip22">-</span></td>
+                <td><span id="snow22">-</span></td>
+                <td><span id="humidity22">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility22">-</span></td>
+                <td><span id="chance_of_rain22">-</span></td>
+                <td><span id="chance_of_snow22">-</span></td>
+                <td><span id="wind_speed22">-</span></td>
+                <td><span id="wind_degree22">-</span></td>
+                <td><span id="wind_direction22">-</span></td>
+                <td><span id="pressure22">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- ------------------------------------------------hour 23 section-------------------------------------------------------- -->
+<section class="hourly-weather" id="hourlyWeather23">
+    <div class="weather-card">
+        <div class="hourly-headers">
+            <p id="time23">-</p>
+        </div>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weatherIcon23" src="./img/icons8-partly-cloudy-day-96.png" alt="" style="width: 150px;">
+            </div>
+            <div class="weather-details">
+                <p class="location-name" id="location23" style="margin-bottom: -1rem;"><i
+                        class="bi bi-geo-alt-fill"></i> -</p>
+                <p class="temperature" id="temperature-c23" style="margin-bottom: -1rem;">-°C</p>
+                <p class="location-name" id="temperature-feels23">Feels like -°C/-°F</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="tblWeather mx-auto mt-5 w-100">
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-umbrella"></i> Condition</th>
+                <th><i class="bi bi-brightness-low-fill"></i> UV index</th>
+                <th><i class="bi bi-cloud"></i> Cloud</th>
+                <th><i class="bi bi-thermometer-sun"></i> heatindex</th>
+                <th><i class="bi bi-cloud-drizzle"></i> Total preciption</th>
+                <th><i class="bi bi-snow"></i> Total snow</th>
+                <th><i class="bi bi-moisture"></i> Avg humidity</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="condition23">-</span></td>
+                <td><span id="uv23">-</span></td>
+                <td><span id="cloud23">-</span></td>
+                <td><span id="heatindex23">-</span></td>
+                <td><span id="precip23">-</span></td>
+                <td><span id="snow23">-</span></td>
+                <td><span id="humidity23">-</span></td>
+            </tr>
+            <tr class="hourly-tblHead">
+                <th><i class="bi bi-eye"></i> Avg visibility</th>
+                <th><i class="bi bi-cloud-rain-heavy"></i></i></i> Chance of rain</th>
+                <th><i class="bi bi-cloud-snow"></i></i> Chance of snow</th>
+                <th><i class="bi bi-wind"></i> Wind Speed</th>
+                <th><i class="bi bi-tropical-storm"></i></i> Wind Degree</th>
+                <th><i class="bi bi-signpost-fill"></i> Wind Direction</th>
+                <th><i class="bi bi-speedometer"></i> Pressure</th>
+            </tr>
+            <tr class="hourly-tblBody">
+                <td><span id="visibility23">-</span></td>
+                <td><span id="chance_of_rain23">-</span></td>
+                <td><span id="chance_of_snow23">-</span></td>
+                <td><span id="wind_speed23">-</span></td>
+                <td><span id="wind_degree23">-</span></td>
+                <td><span id="wind_direction23">-</span></td>
+                <td><span id="pressure23">-</span></td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+
+    <button class="normalBtn m-4 " id="btnBack"><a href="./index.html">Back <i class="bi bi-arrow-return-left"></i></a></button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="./js/forecast-day-06.js" defer></script>
+</body>
+
+</html>
