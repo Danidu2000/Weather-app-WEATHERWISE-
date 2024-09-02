@@ -183,32 +183,25 @@ function fetchNews() {
   // Initialize a variable with yesterday's date formatted as YYYY-MM-DD
   const yesterdayDate = `${year}-${month}-${day}`;
 
+
+
+
+
   const apiKey = "106ad4fd23d24006a6267873fc97dca9";
   const apiUrl = `https://newsapi.org/v2/everything?q=weather&from=${yesterdayDate}&sortBy=publishedAt&apiKey=${apiKey}`;
 
-  fetch(apiUrl,{
-    method: 'GET',
-    headers: {
-      'Upgrade': 'h2c', // Example header if required
-    },
-  })
+  fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
-      // Check if data.articles exists and contains at least 3 articles
-      if (data.articles && data.articles.length >= 3) {
-        for (let i = 1; i < 4; i++) {
-          document.getElementById("newsImg" + i).src = data.articles[i].urlToImage;
-          document.getElementById("newsTitle" + i).textContent = data.articles[i].title;
-          document.getElementById("newsDesc" + i).textContent = data.articles[i].description;
-          document.getElementById("btnNews" + i).href = data.articles[i].url;
-          document.getElementById("newsPub" + i).textContent = new Date(data.articles[i].publishedAt).toLocaleString();
-        }
-      } else {
-        console.error("No articles found or not enough articles in the response.");
-      }
-    })
-    .catch((error) => {
-      console.error("Error fetching news:", error);
+      console.log(data);
+      
+      // for (let i = 1; i < 4; i++) {
+      //   document.getElementById("newsImg" + i).src = data.articles[i].urlToImage;
+      //   document.getElementById("newsTitle" + i).textContent = data.articles[i].title;
+      //   document.getElementById("newsDesc" + i).textContent = data.articles[i].description;
+      //   document.getElementById("btnNews" + i).href = data.articles[i].url;
+      //   document.getElementById("newsPub" + i).textContent = data.articles[i].publishedAt;
+      // }
     });
 }
 
