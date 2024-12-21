@@ -8,7 +8,7 @@ function getWeatherData() {
 
 //-------------------------------------------set the location to api and fetch data---------------------------------------- 
 function fetchWeatherData(location) {
-  const apiKey = "8c4992d485284d88a0730859240210";
+  const apiKey = "5c3d6c9db5944485b9d15435242112";
   const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=8`;
 
   fetch(apiUrl)

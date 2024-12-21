@@ -9,7 +9,7 @@ function getWeatherData() {
 
 //-------------------------------------------set the location to api and fetch data---------------------------------------- 
 function fetchHistoryWeatherData(inputDate,location) {
-    const apiKey = "8c4992d485284d88a0730859240210";
+    const apiKey = "5c3d6c9db5944485b9d15435242112";
     const apiUrl = `https://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${location}&dt=${inputDate}`;
   
     fetch(apiUrl)

@@ -25,7 +25,7 @@ document.getElementById("btnSearch").addEventListener("click", handleSearch);
 
 //-------------------------------------------set the location to api and fetch data---------------------------------------- 
 function fetchWeatherData(location) {
-  const apiKey = "8c4992d485284d88a0730859240210";
+  const apiKey = "5c3d6c9db5944485b9d15435242112";
   const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=8`;
 
   fetch(apiUrl)
@@ -119,7 +119,7 @@ function isDateWithinPastYear(inputDate) {
 }
 
 function fetchHistoryWeatherData(inputDate, location) {
-  const apiKey = "b41bdc895fe240b2827171119242909";
+  const apiKey = "5c3d6c9db5944485b9d15435242112";
   const apiUrl = `https://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${location}&dt=${inputDate}`;
 
   fetch(apiUrl)
@@ -173,7 +173,7 @@ function showMap(latitude, longitude) {
 
 // If your project is being used in production, please upgrade to a paid plan.
 function fetchNews() {
-  const apiKey = "1oAwbFoA4XZcdfCnyY4RTgrwmK5kNj3aTdCRz8p0G6SmjgXG";
+  const apiKey = "A6MIHEulwgJPOUO65Wcu_wfwAbBdN0fRxSsUAfppoBMvmNxx";
   const apiUrl = `https://api.currentsapi.services/v1/search?keywords=Amazon&language=en&apiKey=${apiKey}`;
 
   fetch(apiUrl)
